@@ -38,6 +38,11 @@ def main(args):
     if args.batch_size > 0:
         options['batch_size'] = args.batch_size
 
+    options['all_clip_norm_val'] = 10.0    
+    options['n_tokens_vocab'] = vocab.size
+    options['dropout'] = 0.1
+    options['unroll_steps'] = 20
+    options['n_negative_samples_batch'] = 8192    
     train(options, data, args.n_gpus, tf_save_dir, tf_log_dir,
           restart_ckpt_file=ckpt_file)
 

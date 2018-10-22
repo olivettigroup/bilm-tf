@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "prepare_training_data.py", line 16, in <module>
+    main()
+  File "prepare_training_data.py", line 12, in main
+    for sent in nlp(full_text).sents:
+  File "/home/synthesisproject/anaconda3/lib/python3.6/site-packages/spacy/language.py", line 345, in __call__
+    max_length=self.max_length))
+ValueError: [E088] Text of length 1173033 exceeds maximum of 1000000. The v2.x parser and NER models require roughly 1GB of temporary memory per 100,000 characters in the input. This means long texts may cause memory allocation errors. If you're not using the parser or NER, it's probably safe to increase the `nlp.max_length` limit. The limit is in number of characters, so you can check whether your inputs are too long by checking `len(text)`.

@@ -8,4 +8,4 @@ build/
 *.json
 *.hdf5
 *.txt
-
+checkpoints/
