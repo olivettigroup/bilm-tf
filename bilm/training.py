@@ -896,6 +896,10 @@ def train(options, data, n_gpus, tf_save_dir, tf_log_dir,
                 print("Done training!")
                 break
 
+            print (batch_no)
+            print (n_batches_total)
+        print (batch_no)
+        print ("done")
 
 def clip_by_global_norm_summary(t_list, clip_norm, norm_name, variables):
     # wrapper around tf.clip_by_global_norm that also does summary ops of norms
