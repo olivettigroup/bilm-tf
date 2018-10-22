@@ -3,7 +3,7 @@ import os
 from pymongo import MongoClient
 
 def main():
-    nlp = spacy.load("en")
+    nlp = spacy.load("en", disable=['parser', 'tagger', 'ner'])
     client = MongoClient()
     papers = client.predsynth.papers.find(no_cursor_timeout=True)
     
