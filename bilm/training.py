@@ -893,6 +893,7 @@ def train(options, data, n_gpus, tf_save_dir, tf_log_dir,
 
             if batch_no == n_batches_total:
                 # done training!
+                print("Done training!")
                 break
 
 
@@ -1039,7 +1040,7 @@ def test(options, ckpt_file, data, batch_size=256):
                 (batch_no, batch_perplexity, avg_perplexity, time.time() - t1))
 
     avg_loss = np.mean(batch_losses)
-    print("FINSIHED!  AVERAGE PERPLEXITY = %s" % np.exp(avg_loss))
+    print("FINISHED!  AVERAGE PERPLEXITY = %s" % np.exp(avg_loss))
 
     return np.exp(avg_loss)
 
