@@ -4,7 +4,7 @@ from pymongo import MongoClient
 def main():
     nlp = spacy.load("en")
     client = MongoClient()
-    papers = client.predsynth.papers.aggregate([{ "$sample": { "size": 100000 } }])
+    papers = client.predsynth.papers.find(no_cursor_timeout=True)
     
     for i, paper in enumerate(papers):
         full_text = "\n".join([p["text"] for p in paper["paragraphs"]])
