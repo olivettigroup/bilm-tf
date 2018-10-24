@@ -5,7 +5,7 @@ from pymongo import MongoClient
 def main():
     nlp = spacy.load("en", disable=['tagger', 'ner'])
     client = MongoClient()
-    papers = client.predsynth.papers.find(no_cursor_timeout=True)
+    papers = client.predsynth.papers.find(no_cursor_timeout=True).skip(700000)
     
     for i, paper in enumerate(papers):
         doi = paper["doi"]
@@ -16,6 +16,8 @@ def main():
             continue
 
         full_text = "\n".join([p["text"] for p in paper["paragraphs"]])
+        if len(full_text) < 10:
+            continue
 
         with open(filename, "w") as f:
             for sent in nlp(full_text[:500000]).sents:
