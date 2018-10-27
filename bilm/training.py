@@ -787,7 +787,8 @@ def train(options, data, n_gpus, tf_save_dir, tf_log_dir,
         n_train_tokens = options.get('n_train_tokens', 768648884)
         n_tokens_per_batch = batch_size * unroll_steps * n_gpus
         n_batches_per_epoch = int(n_train_tokens / n_tokens_per_batch)
-        n_batches_total = options['n_epochs'] * n_batches_per_epoch
+        # n_batches_total = options['n_epochs'] * n_batches_per_epoch
+        n_batches_total = 2000000
         print("Training for %s epochs and %s batches" % (
             options['n_epochs'], n_batches_total))
 
